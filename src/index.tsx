@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ApolloProvider } from "@apollo/client";
+import React from "react";
+import ReactDOM from "react-dom";
+import { client } from "./apollo";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./styles/tailwind.css";
+// "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
+// import "./styles/styles.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
