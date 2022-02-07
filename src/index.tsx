@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { client } from "./apollo";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { HelmetProvider } from "react-helmet-async";
 import "./styles/tailwind.css";
 // "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
 // import "./styles/styles.css";
@@ -11,7 +12,9 @@ import "./styles/tailwind.css";
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
