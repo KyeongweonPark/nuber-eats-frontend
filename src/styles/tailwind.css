@@ -12,4 +12,13 @@
   bg-emerald-600 hover:bg-emerald-700 transition-colors;
 }
 
+.container {
+  @apply max-w-screen-2xl mx-auto;
+}
+
+.link {
+  @apply text-lime-600 hover:underline;
+}
+
+
 @tailwind utilities;

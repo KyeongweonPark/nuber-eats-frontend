@@ -8,7 +8,7 @@ import {
 } from "../__generated__/LoginMutation";
 import uberLogo from "../images/uberlogo.svg";
 import { Button } from "../components/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authTokenVar, isLoggedInVar } from "../apollo";
 import { LOCALSTORAGE_TOKEN } from "../constant";
 
@@ -29,6 +29,7 @@ interface ILoginForm {
 }
 
 export const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     getValues,
@@ -43,6 +44,7 @@ export const Login = () => {
       localStorage.setItem(LOCALSTORAGE_TOKEN, token);
       authTokenVar(token);
       isLoggedInVar(true);
+      navigate(0)
     }
   };
   const [loginMutation, { data: loginMutationResult, loading }] = useMutation<
