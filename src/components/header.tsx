@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
         </div>
       )}
       <header className="py-4">
-        <div className="w-full px-5 xl:px-0 max-w-screen-2xl mx-auto flex justify-between items-center">
+        <div className="w-full px-5 xl:px-3 max-w-screen-2xl mx-auto flex justify-between items-center">
           <Link to="/">
             <img src={uberLogo} alt="Nuber Eats" className="w-26" />
           </Link>
@@ -34,11 +34,11 @@ export const Header: React.FC = () => {
             <Link to="/edit-profile">
               <FontAwesomeIcon icon={faUser} className="text-xl" />
             </Link>
-            {data?.me.email}
+            <span className="px-2">{data?.me.email}</span>
+            <Link to="/" onClick={logOut}>
+              Log Out
+            </Link>
           </span>
-          <Link to="/" onClick={logOut}>
-            Log Out
-          </Link>
         </div>
       </header>
     </>
